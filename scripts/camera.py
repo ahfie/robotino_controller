@@ -19,7 +19,7 @@ def spin():
     while not rospy.is_shutdown():
         ret, frame = cap.read()
         if not ret:
-            rospy.INFO("Error: Could not read frame")
+            rospy.loginfo("Error: Could not read frame")
             break
 
         try:
@@ -32,7 +32,7 @@ def spin():
         rate.sleep()
     
     cap.release()
-    rospy.INFO("ros exited from camera")
+    rospy.loginfo("ros exited from camera")
 
 
 if __name__ == "__main__":
@@ -48,11 +48,11 @@ if __name__ == "__main__":
     cap = cv2.VideoCapture(stream_url)
     # Check if the stream is opened
     if not cap.isOpened():
-        rospy.INFO("Error: Could not open video stream")
+        rospy.loginfo("Error: Could not open video stream")
         exit()
 
     try:
         spin()
     except rospy.ROSInterruptException:
         cap.release()
-        rospy.INFO("error: rospy.ROSInterruptException from camera.py")
+        rospy.loginfo("error: rospy.ROSInterruptException from camera.py")
