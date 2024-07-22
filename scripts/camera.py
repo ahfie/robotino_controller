@@ -32,7 +32,6 @@ def spin():
         rate.sleep()
     
     cap.release()
-    rospy.loginfo("ros exited from camera")
 
 
 if __name__ == "__main__":
