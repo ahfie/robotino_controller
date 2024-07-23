@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import cv2
-import argparse
 import rospy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -35,17 +34,12 @@ def spin():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Command-line argument parsing to get ip and port of camera streaming.")
+    # ip = rospy.get_param("ip", "131.159.213.47")
+    # port = rospy.get_param("port", "8080")
 
-    parser.add_argument('--ip', type=str, default="131.159.213.47")
-    parser.add_argument('--port', type=str, default="8080")
-
-    args = parser.parse_args()
-
-    # URL of the video stream
-    stream_url = 'http://' + args.ip + ':' + args.port + '/video'
+    # stream_url = 'http://' + ip + ':' + port + '/video'
     # cap = cv2.VideoCapture(stream_url)
-    
+
     cap = cv2.VideoCapture(0)
     # Check if the stream is opened
     if not cap.isOpened():
