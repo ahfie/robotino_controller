@@ -44,7 +44,9 @@ if __name__ == "__main__":
 
     # URL of the video stream
     stream_url = 'http://' + args.ip + ':' + args.port + '/video'
-    cap = cv2.VideoCapture(stream_url)
+    # cap = cv2.VideoCapture(stream_url)
+    
+    cap = cv2.VideoCapture(0)
     # Check if the stream is opened
     if not cap.isOpened():
         rospy.loginfo("Error: Could not open video stream")
